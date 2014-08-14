@@ -8,16 +8,6 @@ class Tweet
     @user = Tweet.api_call.user(username)
   end
 
-  # def self.api_call(username)
-  #   client = Twitter::REST::Client.new do |config|
-  #     config.consumer_key        = "KOp8uAKmViAv3DHQLFxUDkr1m"
-  #     config.consumer_secret     = "Z3lG9ZQYkJDf4rLSQhKIDDCjj2h2D8BG8IqdvnuTFCiQtPdkeS"
-  #     config.access_token        = "86781982-lZ7xCsZWWL99ZV6PAtj7Qp20Bqzeol1aed3XC6o9n"
-  #     config.access_token_secret = "awSYHiEbgkGhi2p782Wteh5I7v78XhuqFjYsjUoFtcuPS"
-  #   end
-  #   client.user_timeline(username, {excluse_replies: true, include_rts: true, count: 200})
-  # end
-
     def self.api_call
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = "KOp8uAKmViAv3DHQLFxUDkr1m"
