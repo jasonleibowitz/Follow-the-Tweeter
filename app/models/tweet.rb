@@ -10,10 +10,10 @@ class Tweet
 
     def self.api_call
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = "KOp8uAKmViAv3DHQLFxUDkr1m"
-      config.consumer_secret     = "Z3lG9ZQYkJDf4rLSQhKIDDCjj2h2D8BG8IqdvnuTFCiQtPdkeS"
-      config.access_token        = "86781982-lZ7xCsZWWL99ZV6PAtj7Qp20Bqzeol1aed3XC6o9n"
-      config.access_token_secret = "awSYHiEbgkGhi2p782Wteh5I7v78XhuqFjYsjUoFtcuPS"
+      config.consumer_key        = Rails.application.secrets.consumer_key
+      config.consumer_secret     = Rails.application.secrets.consumer_secret
+      config.access_token        = Rails.application.secrets.access_token
+      config.access_token_secret = Rails.application.secrets.access_token_secret
     end
     # client.user_timeline(username, {excluse_replies: true, include_rts: true, count: 200})
   end
