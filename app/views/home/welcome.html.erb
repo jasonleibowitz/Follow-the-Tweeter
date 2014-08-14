@@ -1,4 +1,5 @@
 <h2>Welcome</h2>
+<p><%= Rails.application.secrets.consumer_key %></p>
 <%= form_tag("/results", method: 'post') do  %>
   <%= label_tag(:q, "Enter a Twitter username:") %>
   <%= text_field_tag(:q) %>
