@@ -55,16 +55,16 @@ class Tweet
         end
       end
     end
-    sorted_tweets_per_day = Hash[tweets_per_day.sort]
+    Hash[tweets_per_day.sort]
   end
 
   def calculate_average_tweets_per_day
-    tpd_hash = self.create_tweets_per_day_hash
+    tpd_hash_including_days_with_no_tweets = self.account_for_dates_with_no_tweets.to_h
     average = 0
-    tpd_hash.each_pair do |date, value|
+    tpd_hash_including_days_with_no_tweets.each_pair do |date, value|
       average += value
     end
-    average_tweets_per_day = ((average * 1.0) / (tpd_hash.length * 1.0)).round
+    ((average * 1.0) / (tpd_hash_including_days_with_no_tweets.length * 1.0))
   end
 
   def self.does_tweet_contain_url?(string)
@@ -85,6 +85,23 @@ class Tweet
       end
     end
     tweets_with_url
+  end
+
+  def account_for_dates_with_no_tweets
+    full_date_range = []
+    sorted_tweet_hash = self.create_tweets_per_day_hash
+    first_tweet_date = sorted_tweet_hash.first[0]
+    last_tweet_date = sorted_tweet_hash.keys[sorted_tweet_hash.length - 1]
+
+    # create full date range and add it to array
+    (first_tweet_date..last_tweet_date).each { |date| full_date_range << date }
+    full_date_range.each do |date_to_check|
+      if sorted_tweet_hash.include? date_to_check
+      else
+        sorted_tweet_hash[date_to_check] = 0
+      end
+    end
+    sorted_tweet_hash.sort
   end
 
 end
