@@ -2,6 +2,7 @@
 <p>Name: <%= @name %></p>
 <p>Followers: <%= @followers %></p>
 <p>Bio: <%= @bio %></p>
-<p>Number of Retweets: <%= @num_retweets %> (<%= @retweet_percentage %>% of last <%= @total_num_tweets %>)</p>
+<p>Number of Retweets: <%= @num_retweets %> (<%= @retweet_percentage.round %>% of last <%= @total_num_tweets %>)</p>
 <p>Average Number of Tweets Per Day: <%= @tweets_per_day %></p>
+<p>Tweets with Links: <%= @tweets_with_links %> (<%= @tweet_with_links_percentage.round %>% of last <%= @total_num_tweets %>)</p>
 <p>Total Tweets: <%= @total_num_tweets %> tweets since <%= @first_recorded_tweet.strftime "%b %e, %Y" %></p>
