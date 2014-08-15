@@ -15,6 +15,8 @@ class HomeController < ApplicationController
     @num_retweets = @twitter_user.number_of_retweets
     @retweet_percentage = ((( @num_retweets * 1.0 ) / ( @total_num_tweets * 1.0 )) * 100).round
     @tweets_per_day = @twitter_user.calculate_average_tweets_per_day
+    @tweets_with_links = @twitter_user.calculate_tweets_with_links
+    @tweet_with_links_percentage = (@tweets_with_links * 1.0) / (@total_num_tweets * 1.0) * 100
   end
 
 end
