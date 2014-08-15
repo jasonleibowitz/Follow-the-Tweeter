@@ -8,7 +8,7 @@
 </head>
 <body>
   <h1><%= link_to('Follow The Tweeter', root_path) %></h1>
-
+  <p class='error'><%= flash[:error] %></p>
 <%= yield %>
 
 </body>

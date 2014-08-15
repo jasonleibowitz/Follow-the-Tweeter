@@ -1,11 +1,20 @@
 class Tweet
 
-  attr_accessor :username, :timeline, :user
+  attr_accessor :username, :timeline, :user, :error
 
   def initialize(username)
     @username = username
-    @timeline = Tweet.api_call.user_timeline(username, {excluse_replies: true, include_rts: true, count: 200})
-    @user = Tweet.api_call.user(username)
+    begin
+      @timeline = Tweet.api_call.user_timeline(username, {excluse_replies: true, include_rts: true, count: 200})
+      @error = false
+    rescue Twitter::Error::Unauthorized
+      @error = 'This twitter account is protected. Follow the Tweeter can only analyze unprotected accounts.'
+    end
+    begin
+      @user = Tweet.api_call.user(username)
+    rescue Twitter::Error::Forbidden
+      @error = 'This twitter account appears to be suspended.'
+    end
   end
 
     def self.api_call
