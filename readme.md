@@ -15,6 +15,8 @@ If you have any feature requests feel free to reach out to me [@jasonleibowitz](
 
 FtT now handles errors. If you input a twitter account that is either protected or suspended the app won't crash and will notify you. 
 
+FtT also detects how many tweets include links vs simple text content so you can see which tweeters are directing you to new and interesting content.
+
 #####v 0.0.1
 
 App launched!
