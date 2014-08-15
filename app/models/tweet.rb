@@ -19,7 +19,6 @@ class Tweet
         # config.access_token        = ENV["ACCESS_TOKEN"]
         # config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
       end
-      # client.user_timeline(username, {excluse_replies: true, include_rts: true, count: 200})
     end
 
   def total_number_of_tweets
