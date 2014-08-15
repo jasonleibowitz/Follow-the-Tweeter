@@ -14,10 +14,6 @@ class Tweet
         config.consumer_secret     = Rails.application.secrets.consumer_secret
         config.access_token        = Rails.application.secrets.access_token
         config.access_token_secret = Rails.application.secrets.access_token_secret
-        # config.consumer_key        = ENV["CONSUMER_KEY"]
-        # config.consumer_secret     = ENV["CONSUMER_SECRET"]
-        # config.access_token        = ENV["ACCESS_TOKEN"]
-        # config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
       end
     end
 
@@ -60,6 +56,26 @@ class Tweet
       average += value
     end
     average_tweets_per_day = ((average * 1.0) / (tpd_hash.length * 1.0)).round
+  end
+
+  def self.does_tweet_contain_url?(string)
+    result = false
+    string.split(' ').each do |word|
+      if /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.match(word)
+        result = true
+      end
+    end
+    result
+  end
+
+  def calculate_tweets_with_links
+    tweets_with_url = 0
+    self.timeline.each do |tweet|
+      if Tweet.does_tweet_contain_url?(tweet.text)
+        tweets_with_url += 1
+      end
+    end
+    tweets_with_url
   end
 
 end
