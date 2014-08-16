@@ -18,6 +18,7 @@ class HomeController < ApplicationController
       @tweets_per_day = @twitter_user.calculate_average_tweets_per_day.round(2)
       @tweets_with_links = @twitter_user.calculate_tweets_with_links
       @tweet_with_links_percentage = (@tweets_with_links * 1.0) / (@total_num_tweets * 1.0) * 100
+      @tpd_hash = @twitter_user.create_tweets_per_day_hash
     else
       flash[:error] = @twitter_user.error
       redirect_to root_path
