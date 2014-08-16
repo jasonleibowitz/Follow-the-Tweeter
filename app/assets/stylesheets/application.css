@@ -16,3 +16,7 @@
 .error {
   color: red;
 }
+
+#tpd_hash {
+  visibility: hidden;
+}
