@@ -10,6 +10,10 @@ If you have any feature requests feel free to reach out to me [@jasonleibowitz](
 
 ### Release Notes
 ---
+#### v.0.0.5
+
+Updated the way FtT goes to the results page, using a get request instead of post. Users can now bookmark or share specific user's results pages. 
+
 #### v.0.0.4
 
 Added support for an interactive chart on the results page. The chart graphs the last 30 days of tweets on a line chart so it is easy to visually view a user's activity.
