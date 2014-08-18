@@ -17,6 +17,6 @@
   color: red;
 }
 
-#tpd_hash {
+#tpd_keys, #tpd_values {
   visibility: hidden;
 }

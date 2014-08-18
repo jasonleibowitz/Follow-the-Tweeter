@@ -9,6 +9,7 @@ class HomeController < ApplicationController
     @twitter_user = Tweet.new(username)
     unless @twitter_user.error
       @name = @twitter_user.user.name
+      @screenname = @twitter_user.user.screen_name
       @followers = @twitter_user.user.followers_count
       @bio = @twitter_user.user.description
       @total_num_tweets = @twitter_user.total_number_of_tweets
@@ -18,11 +19,21 @@ class HomeController < ApplicationController
       @tweets_per_day = @twitter_user.calculate_average_tweets_per_day.round(2)
       @tweets_with_links = @twitter_user.calculate_tweets_with_links
       @tweet_with_links_percentage = (@tweets_with_links * 1.0) / (@total_num_tweets * 1.0) * 100
-      @tpd_hash = @twitter_user.create_tweets_per_day_hash
+      @tpd_keys = @twitter_user.create_javascript_friendly_tpd_hash[0].to_json
+      @tpd_values = @twitter_user.create_javascript_friendly_tpd_hash[1].to_json
     else
       flash[:error] = @twitter_user.error
       redirect_to root_path
     end
   end
 
+  def chart_data
+    @screenname = params[:screenname]
+    respond_to do |format|
+      format.json { render text: Tweet.create_javascript_friendly_tpd_hash }
+    end
+  end
+
 end
+
+

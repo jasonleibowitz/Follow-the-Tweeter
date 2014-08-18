@@ -1,18 +1,20 @@
 $( document ).ready(function() {
     console.log( "loaded bro!" );
+    getLabels();
+    getData();
 
     var data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: dates,
     datasets: [
         {
             label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data: tweets
         }
       ]
   };
@@ -24,9 +26,9 @@ $( document ).ready(function() {
 });
 
 function getLabels(){
-
+  dates = jQuery.parseJSON($('#tpd_keys').html());
 }
 
 function getData(){
-
+  tweets = jQuery.parseJSON($('#tpd_values').html());
 }

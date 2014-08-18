@@ -1,5 +1,6 @@
 <h2>Results</h2>
 <p>Name: <%= @name %></p>
+<p>Screen Name: @<span id="screenname"><%= @screenname %></span></p>
 <p>Followers: <%= @followers %></p>
 <p>Bio: <%= @bio %></p>
 <p>Number of Retweets: <%= @num_retweets %> (<%= @retweet_percentage.round %>% of last <%= @total_num_tweets %>)</p>
@@ -7,5 +8,6 @@
 <p>Tweets with Links: <%= @tweets_with_links %> (<%= @tweet_with_links_percentage.round %>% of last <%= @total_num_tweets %>)</p>
 <p>Total Tweets: <%= @total_num_tweets %> tweets since <%= @first_recorded_tweet.strftime "%b %e, %Y" %></p>
 <br>
-<canvas id="myChart" width="400" height="400"></canvas>
-<div id="tpd_hash"><%= @tpd_hash %></div>
+<canvas id="myChart" width="400" height="300"></canvas>
+<div id="tpd_keys"><%= @tpd_keys %></div>
+<div id="tpd_values"><%= @tpd_values %></div>

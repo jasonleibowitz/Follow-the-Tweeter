@@ -58,6 +58,19 @@ class Tweet
     Hash[tweets_per_day.sort]
   end
 
+  def create_javascript_friendly_tpd_hash
+    tpd_hash = self.create_tweets_per_day_hash
+    keys = []
+    values = []
+    tpd_hash.each do |k, v|
+      month = k.strftime "%b"
+      day = k.strftime "%e"
+      keys.push(month + " " + day)
+      values.push(v)
+    end
+    [keys.last(30), values.last(30)]
+  end
+
   def calculate_average_tweets_per_day
     tpd_hash_including_days_with_no_tweets = self.account_for_dates_with_no_tweets.to_h
     average = 0
