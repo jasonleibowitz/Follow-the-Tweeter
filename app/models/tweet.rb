@@ -9,11 +9,15 @@ class Tweet
       @error = false
     rescue Twitter::Error::Unauthorized
       @error = 'This twitter account is protected. Follow the Tweeter can only analyze unprotected accounts.'
+    rescue Twitter::Error::NotFound
+      @error = 'There is no twitter user with that username. Please check that you typed the username correctly.'
     end
     begin
       @user = Tweet.api_call.user(username)
     rescue Twitter::Error::Forbidden
       @error = 'This twitter account appears to be suspended.'
+    rescue Twitter::Error::NotFound
+      @error = 'There is no twitter user with that username. Please check that you typed the username correctly.'
     end
   end
 
