@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def results
-    username = params[:q]
+    username = params[:screenname]
     @twitter_user = Tweet.new(username)
     unless @twitter_user.error
       @name = @twitter_user.user.name
