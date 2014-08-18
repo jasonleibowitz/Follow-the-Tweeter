@@ -10,6 +10,9 @@ If you have any feature requests feel free to reach out to me [@jasonleibowitz](
 
 ### Release Notes
 ---
+#### v.0.0.4
+
+Added support for an interactive chart on the results page. The chart graphs the last 30 days of tweets on a line chart so it is easy to visually view a user's activity.
 
 #### v.0.0.3
 
@@ -40,3 +43,5 @@ App launched!
 	* [Ruby Twitter Wrapper](https://github.com/sferik/twitter)
 * Core Technologies
 	* [Ruby on Rails](http://rubyonrails.org/)
+	* [jQuery](http://jquery.com/)
+	* [Chart.js](http://www.chartjs.org/)
