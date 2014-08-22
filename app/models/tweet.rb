@@ -125,7 +125,13 @@ class Tweet
     similarity_rating_array = 0
     num_of_repeated_tweets = 0
     num_of_similar_tweets = 0
-    self.timeline.combination(2).each do |first_tweet, second_tweet|      similarity_score = first_tweet.text.similar(second_tweet.text)
+    timeline_without_rts = self.timeline
+    timeline_without_rts.each do |tweet|
+      if tweet.reply?
+        timeline_without_rts.delete(tweet)
+      end
+    end
+    timeline_without_rts.combination(2).each do |first_tweet, second_tweet|      similarity_score = first_tweet.text.similar(second_tweet.text)
       if similarity_score == 100
         similarity_rating_array += similarity_score
         num_of_repeated_tweets += 1
@@ -136,7 +142,7 @@ class Tweet
         similarity_rating_array += similarity_score
       end
     end
-    similarity_rating = similarity_rating_array / self.timeline.combination(2).to_a.length
+    similarity_rating = similarity_rating_array / timeline_without_rts.combination(2).to_a.length
     # binding.pry
     return [similarity_rating.round(2), num_of_repeated_tweets, num_of_similar_tweets]
   end
