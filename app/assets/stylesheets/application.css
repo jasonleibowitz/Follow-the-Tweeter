@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ .content {
+  visibility: hidden;
+ }
+
 .error {
   color: red;
 }

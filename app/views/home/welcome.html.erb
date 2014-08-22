@@ -1,8 +1,11 @@
-<h2>Welcome</h2>
-<%= form_tag("/results", method: 'get') do  %>
-  <%= label_tag(:q, "Enter a Twitter username:") %>
-  <%= text_field_tag(:screenname) %>
-  <%= submit_tag "Analyze", :name => nil, id: 'submit' %>
-<% end %>
+<!-- Congratulations. If you've made it here you're a developer and deserve to bypass the password block. Want a hint? Look at the password.js file. I made this site really easy to hack. -->
+<div class="content">
+  <h2>Welcome</h2>
+  <%= form_tag("/results", method: 'get') do  %>
+    <%= label_tag(:q, "Enter a Twitter username:") %>
+    <%= text_field_tag(:screenname) %>
+    <%= submit_tag "Analyze", :name => nil, id: 'submit' %>
+  <% end %>
 
-<%= image_tag "loading.gif", id: "loading" %>
+  <%= image_tag "loading.gif", id: "loading" %>
+</div>
