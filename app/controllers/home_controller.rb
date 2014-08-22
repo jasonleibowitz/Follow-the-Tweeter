@@ -21,6 +21,7 @@ class HomeController < ApplicationController
       @tweet_with_links_percentage = (@tweets_with_links * 1.0) / (@total_num_tweets * 1.0) * 100
       @tpd_keys = @twitter_user.create_javascript_friendly_tpd_hash[0].to_json
       @tpd_values = @twitter_user.create_javascript_friendly_tpd_hash[1].to_json
+      @similarity_scores_array = @twitter_user.calculate_similarity_scores
     else
       flash[:error] = @twitter_user.error
       redirect_to root_path

@@ -2,5 +2,7 @@
 <%= form_tag("/results", method: 'get') do  %>
   <%= label_tag(:q, "Enter a Twitter username:") %>
   <%= text_field_tag(:screenname) %>
-  <%= submit_tag "Analyze", :name => nil %>
+  <%= submit_tag "Analyze", :name => nil, id: 'submit' %>
 <% end %>
+
+<%= image_tag "loading.gif", id: "loading" %>
