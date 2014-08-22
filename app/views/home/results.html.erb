@@ -6,6 +6,9 @@
 <p>Number of Retweets: <%= @num_retweets %> (<%= @retweet_percentage.round %>% of last <%= @total_num_tweets %>)</p>
 <p>Average Number of Tweets Per Day: <%= @tweets_per_day %></p>
 <p>Tweets with Links: <%= @tweets_with_links %> (<%= @tweet_with_links_percentage.round %>% of last <%= @total_num_tweets %>)</p>
+<p>Tweet Similarity Rating: <%= @similarity_scores_array[0] %>%</p>
+<p>Repeated Tweets: <%= @similarity_scores_array[1] %></p>
+<p>Similar Tweets: <%= @similarity_scores_array[2] %></p>
 <p>Total Tweets: <%= @total_num_tweets %> tweets since <%= @first_recorded_tweet.strftime "%b %e, %Y" %></p>
 <br>
 <canvas id="myChart" width="600" height="400"></canvas>

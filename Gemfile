@@ -14,3 +14,4 @@ gem 'spring',        group: :development
 gem 'twitter'
 gem 'pry-rails'
 gem 'rails_12factor', group: :production
+gem 'similar_text'
