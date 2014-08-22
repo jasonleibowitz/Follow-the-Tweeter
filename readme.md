@@ -10,6 +10,10 @@ If you have any feature requests feel free to reach out to me [@jasonleibowitz](
 
 ### Release Notes
 ---
+#### v.0.0.6
+
+Added similarity score. FtT now compares all tweets it collects (the last 200) and see how many tweets are repeated and how many are similar to each other (over a 75% similarity rating). Similarity is calculated using the ruby gem [similar_text](https://github.com/valcker/similar_text-ruby).
+
 #### v.0.0.5
 
 Updated the way FtT goes to the results page, using a get request instead of post. Users can now bookmark or share specific user's results pages. 
@@ -45,6 +49,7 @@ App launched!
 	* [Twitter API](https://dev.twitter.com/)
 * Gems
 	* [Ruby Twitter Wrapper](https://github.com/sferik/twitter)
+	* [Similar Text](https://github.com/valcker/similar_text-ruby)
 * Core Technologies
 	* [Ruby on Rails](http://rubyonrails.org/)
 	* [jQuery](http://jquery.com/)
