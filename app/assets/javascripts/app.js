@@ -1,5 +1,6 @@
 $( document ).ready(function() {
     console.log( "loaded bro!" );
+    $('#submit').click(showLoading);
     getLabels();
     getData();
 
@@ -31,4 +32,8 @@ function getLabels(){
 
 function getData(){
   tweets = jQuery.parseJSON($('#tpd_values').html());
+}
+
+function showLoading(){
+    $('#loading').css('visibility', 'visible');
 }

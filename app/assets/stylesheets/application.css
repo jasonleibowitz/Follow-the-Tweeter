@@ -20,3 +20,10 @@
 #tpd_keys, #tpd_values {
   visibility: hidden;
 }
+
+#loading {
+  padding-top: 25px;
+  margin: 0 auto;
+  display: block;
+  visibility: hidden;
+}
