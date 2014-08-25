@@ -22,6 +22,7 @@ class HomeController < ApplicationController
       @tpd_keys = @twitter_user.create_javascript_friendly_tpd_hash[0].to_json
       @tpd_values = @twitter_user.create_javascript_friendly_tpd_hash[1].to_json
       @similarity_scores_array = @twitter_user.calculate_similarity_scores
+      @followbility_score = @twitter_user.calculate_followbility_score(@retweet_percentage, @tweet_with_links_percentage, @similarity_scores_array[1], @similarity_scores_array[2], @tweets_per_day)
     else
       flash[:error] = @twitter_user.error
       redirect_to root_path

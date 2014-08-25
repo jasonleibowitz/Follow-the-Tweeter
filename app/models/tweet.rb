@@ -147,4 +147,35 @@ class Tweet
     return [similarity_rating.round(2), num_of_repeated_tweets, num_of_similar_tweets]
   end
 
+  def calculate_followbility_score(retweet_percentage, tweet_with_link_percentage, repeated_tweets, similar_tweets, tweets_per_day)
+    followbility_score = 0
+    # calculate tweet_per_day, which can be up to 3 points
+    if (tweets_per_day > 0.3) && (tweets_per_day < 5.0)
+      followbility_score += 3
+    end
+    # calculate repeated tweets, which can be up to 2 points
+    if repeated_tweets < 10
+      followbility_score += 2
+    elsif (repeated_tweets > 10) && (repeated_tweets < 20)
+      followbility_score += 1
+    end
+    # calculate link percentage, which can be up to 2 points
+    if tweet_with_link_percentage >= 70
+      followbility_score += 3
+    elsif tweet_with_link_percentage >= 40
+      followbility_score += 2
+    elsif tweet_with_link_percentage >= 25
+      followbility_score += 1
+    end
+    # calculate rt percentage, which can be up to 1 point
+    if retweet_percentage <= 25
+      followbility_score += 1
+    end
+    # calculate similar tweets, which can be up to 1 point
+    if similar_tweets <= 25
+      followbility_score += 1
+    end
+    followbility_score
+  end
+
 end
