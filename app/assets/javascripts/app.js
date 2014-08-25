@@ -24,6 +24,14 @@ $( document ).ready(function() {
     var ctx = $("#myChart").get(0).getContext("2d");
     var myNewChart = new Chart(ctx);
     var myLineChart = new Chart(ctx).Line(data, options);
+
+    $('.tooltip').tooltipster({
+        maxWidth: '500',
+        position: 'bottom',
+        animation: 'grow',
+        iconTouch: true,
+        onlyOne: true
+    });
 });
 
 function getLabels(){

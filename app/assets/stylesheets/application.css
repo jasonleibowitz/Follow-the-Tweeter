@@ -13,8 +13,71 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background: url(body_bg.png);
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 25pt;
+}
+
+h3 {
+  font-size: 20pt;
+  padding: 10px;
+}
+
+a:link, a:visited, a:active {
+  color: #55acee;
+}
+
+span #screen
+
+a:hover {
+  color: black;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.nav {
+  height: 50px;
+  background: black;
+}
+
+.logo a:link, .logo a:visited, .logo a:hover, .logo a:active {
+  color: #55acee;
+  font-family: 'Josefin Slab', serif;
+}
+
+.header {
+  background: url(top_3.png);
+  /*height: 180px;*/
+  color: white;
+}
+
+.header form {
+  padding: 25px;
+}
+
+#bird {
+  width: 50px;
+  padding: 25px;
+}
+
+#user-info {
+  padding: 25px;
+}
+
+#user-info p {
+  padding-bottom: 7px;
+}
+
 .error {
   color: red;
+  padding-top: 10px;
 }
 
 #tpd_keys, #tpd_values {
@@ -26,4 +89,59 @@
   margin: 0 auto;
   display: block;
   visibility: hidden;
+}
+
+.main-score {
+  display: block;
+  margin: 0 auto;
+  background: white;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  margin-top: 25px;
+}
+
+.sub-scores {
+  padding-top: 25px;
+}
+
+.score-circle {
+  font-size: 30pt;
+  padding-top: 75px;
+  text-align: center;
+}
+
+.label-circle {
+  padding-top: 15px;
+  text-align: center;
+}
+
+.box {
+  background: white;
+  height: 120px;
+}
+
+.score {
+  font-size: 30pt;
+  padding-top: 25px;
+  text-align: center;
+}
+
+.label {
+  padding-top: 15px;
+  text-align: center;
+}
+
+.chart {
+  padding-top: 25px;
+  display: block;
+  margin: 0 auto;
+}
+
+.chart-label h1 {
+  font-size: 25pt;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: 'Lato', sans-serif;
 }

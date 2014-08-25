@@ -1,8 +1,23 @@
-<h2>Welcome</h2>
-<%= form_tag("/results", method: 'get') do  %>
-  <%= label_tag(:q, "Enter a Twitter username:") %>
-  <%= text_field_tag(:screenname) %>
-  <%= submit_tag "Analyze", :name => nil, id: 'submit' %>
-<% end %>
+<div class="header">
+  <div class="container">
+    <div class="sixteen columns">
+      <p class='error'><%= flash[:error] %></p>
+    </div>
+    <div class="two columns offset-by-four">
+      <%= image_tag "twitter_bird.png", id: 'bird' %>
+    </div>
+    <div class="five columns">
+      <%= form_tag("/results", method: 'get') do  %>
+        <%= label_tag(:q, "Enter a Twitter username:") %>
+        <%= text_field_tag(:screenname) %>
+        <%= submit_tag "Analyze", :name => nil, id: 'submit' %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<%= image_tag "loading.gif", id: "loading" %>
+<div class="container">
+  <div class="sixteen columns">
+    <%= image_tag "loading.gif", id: "loading" %>
+  </div>
+</div>
