@@ -1,59 +1,61 @@
-<div class="header">
+<body class="result-page">
+  <div class="header">
+    <div class="container">
+      <div class="sixteen columns clearfix">
+        <div class="two columns alpha">
+          <%= image_tag "twitter_bird.png", id: 'bird' %>
+        </div>
+        <div class="ten columns omega" class="user-info">
+          <p class="user-p"><span class="bold">Name:</span> <%= @name %></p>
+          <p class="user-p"><span class="bold"> Screen Name: </span><a href="https://twitter.com/<%= @screenname %>" target="blank">@<%= @screenname %></a></p>
+          <p class="user-p"><span class="bold">Bio:</span> <%= @bio %></p>
+          <p class="user-p bottom-margin"><span class="bold">Followers:</span> <%= @followers %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
-    <div class="sixteen columns clearfix">
-      <div class="two columns alpha">
-        <%= image_tag "twitter_bird.png", id: 'bird' %>
-      </div>
-      <div class="ten columns omega" id="user-info">
-        <p><span class="bold">Name:</span> <%= @name %></p>
-        <p><span class="bold"> Screen Name:</span> <span id="screenname">@<a href="https://twitter.com/<%= @screenname %>" target="blank"><%= @screenname %></span></a></p>
-        <p><span class="bold">Bio:</span> <%= @bio %></p>
-        <p><span class="bold">Followers:</span> <%= @followers %></p>
+    <div class="sixteen columns">
+      <div class="main-score">
+        <p class="score-circle"><%= @followbility_score %></p>
+        <a href="#"><p class="label-circle tooltip" id="followbility" title="The followbility score is a score out of 10 that indicates how worthwhile the twitter user is to follow. The score is calculated using a number of different metrics. For more information about how this is calculated, visit the homepage.">Followbility Score</p></a>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="sixteen columns">
-    <div class="main-score">
-      <p class="score-circle"><%= @followbility_score %></p>
-      <a href="#"><p class="label-circle tooltip" id="followbility" title="The followbility score is a score out of 10 that indicates how worthwhile the twitter user is to follow. The score is calculated using a number of different metrics. For more information click about in the nav bar.">Followbility Score</p></a>
+  <div class="container sub-scores">
+    <div class="four columns box">
+      <p class="score"><%= @tweets_per_day %></p>
+      <p class="label">Tweets per Day</p>
+    </div>
+    <div class="four columns box">
+      <p class="score"><%= @tweet_with_links_percentage.round %>%</p>
+      <p class="label">Tweets with Links</p>
+    </div>
+    <div class="four columns box">
+      <p class="score"><%= @retweet_percentage.round %>%</p>
+      <p class="label">Retweeted Tweets</p>
+    </div>
+    <div class="four columns box">
+      <p class="score"><%= @similarity_scores_array[1] %></p>
+      <p class="label">Repeated Tweets</p>
     </div>
   </div>
-</div>
 
-<div class="container sub-scores">
-  <div class="four columns box">
-    <p class="score"><%= @tweets_per_day %></p>
-    <p class="label">Tweets per Day</p>
-  </div>
-  <div class="four columns box">
-    <p class="score"><%= @tweet_with_links_percentage.round %>%</p>
-    <p class="label">Tweets with Links</p>
-  </div>
-  <div class="four columns box">
-    <p class="score"><%= @retweet_percentage.round %>%</p>
-    <p class="label">Retweeted Tweets</p>
-  </div>
-  <div class="four columns box">
-    <p class="score"><%= @similarity_scores_array[1] %></p>
-    <p class="label">Repeated Tweets</p>
-  </div>
-</div>
-
-<div class="container chart">
-  <div class="fifteen columns">
-    <div class="chart-label">
-      <h1>Tweet per Day Frequency</h1>
+  <div class="container chart">
+    <div class="fifteen columns">
+      <div class="chart-label">
+        <h1>Tweet per Day Frequency</h1>
+      </div>
+    </div>
+    <div class="sixteen columns">
+      <hr>
+    </div>
+    <div class="fifteen columns offset-by-one">
+      <canvas id="myChart" height="300" width="400"></canvas>
+      <div id="tpd_keys"><%= @tpd_keys %></div>
+      <div id="tpd_values"><%= @tpd_values %></div>
     </div>
   </div>
-  <div class="sixteen columns">
-    <hr>
-  </div>
-  <div class="fifteen columns offset-by-one">
-    <canvas id="myChart" height="300" width="400"></canvas>
-    <div id="tpd_keys"><%= @tpd_keys %></div>
-    <div id="tpd_values"><%= @tpd_values %></div>
-  </div>
-</div>
+</body>

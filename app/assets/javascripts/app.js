@@ -9,7 +9,7 @@ $( document ).ready(function() {
     datasets: [
         {
             label: "My First dataset",
-            fillColor: "rgba(151,187,205,0.2)",
+            fillColor: "rgba(85, 172, 238, 0.2)",
             strokeColor: "rgba(151,187,205,1)",
             pointColor: "rgba(151,187,205,1)",
             pointStrokeColor: "#fff",

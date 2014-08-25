@@ -1,3 +1,4 @@
+<a name="#"></a>
 <div class="header">
   <div class="container">
     <div class="sixteen columns">
@@ -19,5 +20,50 @@
 <div class="container">
   <div class="sixteen columns">
     <%= image_tag "loading.gif", id: "loading" %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sixteen columns">
+    <h2 class="center-text">What is Follow the Tweeter?</h2>
+  </div>
+  <div class="ten columns offset-by-three">
+    <p class="description">Have you ever followed a twitter account only to find that they tweeted too much or tweeted a lot of spam? Don't worry, we all have.</p>
+
+    <p class="description bottom-padding">Follow the Tweeter is now here to help you better determine which twitter accounts are worth following and which accounts you should avoid. By analyzing any public twitter profile, we can evaluate their <i>followbility score</i>, a score out of ten of their follow value.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sixteen columns">
+    <h2 class="center-text">How to Use?</h2>
+  </div>
+  <div class="ten columns offset-by-three">
+    <p class="description bottom-padding">Simply input any twitter account into the text field at the <a href="#top">top of this page</a>, then click analyze. <span class="bold">FtT</span> will automatically connect to twitter, analyze the user's account, and show you a dashboard of information we found along with our patented followbility score. We never save any of your information or keep a record of your twitter account.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sixteen columns">
+    <h2 class="center-text">How is the Followbility Score Calculated?</h2>
+  </div>
+  <div class="ten columns offset-by-three">
+    <p class="description">There are five metrics that go into our <i>followbility score</i>:</p>
+    <ul>
+      <li>Tweets per Day</li>
+      <li>Tweets with Links (as opposed to text-only tweets)</li>
+      <li>Retweeted Tweets (as opposed to original content)</li>
+      <li>Repeated Tweets</li>
+      <li>Similar Tweets (that are most than 75% similar in word structure)</li>
+    </ul>
+    <p class="description"><span class="bold">Tweets per Day</span> are worth 3 points. As long as the user falls within the range of 0.3 - 5.0 TPD, they will receive 3 points.</p>
+
+    <p class="description"><span class="bold">Tweets with Links</span> are also worth up to 3 points. If 70% + of the user's tweets contain links, they will receive all 3 points. If 40% - 69% of the user's tweet's contain links, they will receive 2 points. If between 25% and 39% of the user's tweets contain links, they will only receive 1 point. Anything lower than 25% and they receive no points.</p>
+
+    <p class="description"><span class="bold">Retweeted Tweets</span> are seen as a negative. Some RTs are ok, but when you follow a twitter user, you want more original content. Retweeted tweets aer only worth 1 point. As long as less than 25% of their tweets are RTs, they will receive the full point.</p>
+
+    <p class="description"><span class="bold">Repeated Tweets</span> are bad as well. Tweets should almost never be retweeted. Most of the time when a twitter user repeats himself/herself, it is spam or marketing. Repeated tweets can receive up to two points. If the twitter user has less than 10 retweeted tweets, they will receive the full 2 points. If the user has between 11 and 20 repeated tweets they will only receive 1 point. Any more than 20 repeated tweets and the user receives no points.</p>
+
+    <p class="description bottom-padding">The last metric is <span class="bold">Similar Tweets</span>. This is measured the same way we measure repeated tweets. Repeated tweets are any tweets that are 100% the same. Similar tweets are any tweets that are 75% similar. Tweets are similar when they contain very similar word structure and meaning. If the user has less than 25 similar tweets they will receive 1 point. Any more, and they receive none.</p>
   </div>
 </div>
