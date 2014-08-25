@@ -1,4 +1,5 @@
 <h2>Results</h2>
+<p>Followbility Score: <%= @followbility_score %></p>
 <p>Name: <%= @name %></p>
 <p>Screen Name: @<span id="screenname"><%= @screenname %></span></p>
 <p>Followers: <%= @followers %></p>
@@ -10,7 +11,6 @@
 <p>Repeated Tweets: <%= @similarity_scores_array[1] %></p>
 <p>Similar Tweets: <%= @similarity_scores_array[2] %></p>
 <p>Total Tweets: <%= @total_num_tweets %> tweets since <%= @first_recorded_tweet.strftime "%b %e, %Y" %></p>
-<p>Followbility Score: <%= @followbility_score %></p>
 <br>
 <canvas id="myChart" height="300" width="400"></canvas>
 <div id="tpd_keys"><%= @tpd_keys %></div>
