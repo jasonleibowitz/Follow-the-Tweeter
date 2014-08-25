@@ -6,7 +6,11 @@ class Tweet
     @username = username
     begin
       @timeline = Tweet.api_call.user_timeline(username, {excluse_replies: true, include_rts: true, count: 200})
-      @error = false
+      if @timeline.empty?
+        @error = "This twitter user has never tweeted before."
+      else
+        @error = false
+      end
     rescue Twitter::Error::Unauthorized
       @error = 'This twitter account is protected. Follow the Tweeter can only analyze unprotected accounts.'
     rescue Twitter::Error::NotFound
@@ -143,7 +147,6 @@ class Tweet
       end
     end
     similarity_rating = similarity_rating_array / timeline_without_rts.combination(2).to_a.length
-    # binding.pry
     return [similarity_rating.round(2), num_of_repeated_tweets, num_of_similar_tweets]
   end
 
