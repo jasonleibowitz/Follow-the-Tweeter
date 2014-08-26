@@ -236,3 +236,7 @@ a:hover {
 .tooltip {
   cursor: help;
 }
+
+.fa-heart {
+  color: red;
+}

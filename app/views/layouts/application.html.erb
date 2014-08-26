@@ -5,9 +5,14 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <!-- Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+  <!-- Font Awesome -->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
   <nav class="nav">
@@ -15,5 +20,11 @@
   </nav>
 <%= yield %>
 
+<div class="container">
+  <div class="sixteen columns clearfix">
+    <div class="three columns alpha bottom-padding">Made with <i class="fa fa-heart"></i> in NY.</div>
+    <div class="five columns omega offset-by-eight">Another project by <a href="http://jasonleibowitz.org" target="_blank">Jason Leibowitz</a>.</div>
+  </div>
+</div>
 </body>
 </html>
