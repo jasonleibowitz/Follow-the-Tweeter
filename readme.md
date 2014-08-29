@@ -10,23 +10,32 @@ If you have any feature requests feel free to reach out to me [@jasonleibowitz](
 
 ### Release Notes
 ---
-#### v.0.0.6
+
+#### v 1.0.1
+
+Chart dynamically resizes on window resize. 
+
+#### v 1.0
+
+CSS styling added. 
+
+#### v 0.0.6
 
 Added similarity score. FtT now compares all tweets it collects (the last 200) and see how many tweets are repeated and how many are similar to each other (over a 75% similarity rating). Similarity is calculated using the ruby gem [similar_text](https://github.com/valcker/similar_text-ruby).
 
-#### v.0.0.5
+#### v 0.0.5
 
 Updated the way FtT goes to the results page, using a get request instead of post. Users can now bookmark or share specific user's results pages. 
 
-#### v.0.0.4
+#### v 0.0.4
 
 Added support for an interactive chart on the results page. The chart graphs the last 30 days of tweets on a line chart so it is easy to visually view a user's activity.
 
-#### v.0.0.3
+#### v 0.0.3
 
 The tweets per day algorithm has been updated to take into account days when the user does not tweet. This results in a more accurate tweets per day number with two decimal places. 
 
-##### v.0.0.2
+##### v 0.0.2
 
 FtT now handles errors. If you input a twitter account that is either protected or suspended the app won't crash and will notify you. 
 
