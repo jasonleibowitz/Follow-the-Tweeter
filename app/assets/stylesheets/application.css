@@ -240,3 +240,7 @@ a:hover {
 .fa-heart {
   color: red;
 }
+
+#canvas-wrap {
+  text-align: center;
+}

@@ -1,10 +1,39 @@
 $( document ).ready(function() {
     console.log( "loaded bro!" );
     $('#submit').click(showLoading);
+    getGlobalChartVars();
+
+
+    appendCanvasToDom();
+    $(window).resize(reDrawChart);
+
+    $('.tooltip').tooltipster({
+        maxWidth: '500',
+        position: 'bottom',
+        animation: 'grow',
+        iconTouch: true,
+        onlyOne: true
+    });
+});
+
+function appendCanvasToDom(){
+    var dynamicWidth = ($(window).width() < 1300 && $(window).width() > 766)? $(window).width() * 0.60 : $(window).width() * 0.45;
+    $('#canvas-wrap').prepend('<canvas id="myChart" height="' + dynamicWidth + '" width="' + dynamicWidth + '"></canvas>');
+    drawChart();
+}
+
+function drawChart(){
+    var options = {scaleShowGridLines: true};
+    var ctx = $("#myChart").get(0).getContext("2d");
+    var myNewChart = new Chart(ctx);
+    var myLineChart = new Chart(ctx).Line(data, options);
+}
+
+function getGlobalChartVars(){
     getLabels();
     getData();
 
-    var data = {
+    data = {
     labels: dates,
     datasets: [
         {
@@ -18,21 +47,13 @@ $( document ).ready(function() {
             data: tweets
         }
       ]
-  };
+    };
+}
 
-    var options = {scaleShowGridLines: true};
-    var ctx = $("#myChart").get(0).getContext("2d");
-    var myNewChart = new Chart(ctx);
-    var myLineChart = new Chart(ctx).Line(data, options);
-
-    $('.tooltip').tooltipster({
-        maxWidth: '500',
-        position: 'bottom',
-        animation: 'grow',
-        iconTouch: true,
-        onlyOne: true
-    });
-});
+function reDrawChart(){
+    $('#myChart').remove();
+    appendCanvasToDom();
+}
 
 function getLabels(){
   dates = jQuery.parseJSON($('#tpd_keys').html());
