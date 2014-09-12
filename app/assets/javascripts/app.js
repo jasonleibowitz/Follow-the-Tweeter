@@ -17,7 +17,7 @@ $( document ).ready(function() {
 });
 
 function appendCanvasToDom(){
-    var dynamicWidth = ($(window).width() < 1300 && $(window).width() > 766)? $(window).width() * 0.60 : $(window).width() * 0.45;
+    var dynamicWidth = ($(window).width() < 1300 && $(window).width() > 766)? $(window).width() * 0.50 : $(window).width() * 0.45;
     $('#canvas-wrap').prepend('<canvas id="myChart" height="' + dynamicWidth + '" width="' + dynamicWidth + '"></canvas>');
     drawChart();
 }
@@ -25,7 +25,7 @@ function appendCanvasToDom(){
 function drawChart(){
     var options = {scaleShowGridLines: true};
     var ctx = $("#myChart").get(0).getContext("2d");
-    var myNewChart = new Chart(ctx);
+    // var myNewChart = new Chart(ctx);
     var myLineChart = new Chart(ctx).Line(data, options);
 }
 
